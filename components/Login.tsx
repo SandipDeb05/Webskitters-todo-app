@@ -14,6 +14,11 @@ const Login = () => {
       setError("All fields are requide");
       return;
     }
+
+    if (password?.length < 8) {
+      setError("Password must be 8 characters long");
+      return;
+    }
     if (isLoggedIn) {
       try {
         return await login(email, password);
