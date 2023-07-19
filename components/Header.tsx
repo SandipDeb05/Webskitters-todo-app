@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <h1 className="header-title">Todo App</h1>
+      <h1 className="header-title">Todo</h1>
       {currentUser && (
         <h3 className="header-welcome">
           Welcome <span style={{ color: "#FFC107" }}>{currentUser.email}</span>
