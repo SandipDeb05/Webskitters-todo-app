@@ -2,7 +2,7 @@ import { useAuth } from "@/context/authContext";
 import React, { useState } from "react";
 
 const Login = () => {
-  const { login, signup, currentUser } = useAuth();
+  const { login, signup, loginWithGoogle } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -23,8 +23,20 @@ const Login = () => {
       try {
         await signup(email, password);
       } catch (error) {
-        setError("Email and password already in use");
+        if (error.code === 400) {
+          setError("Email and password already in use");
+        } else {
+          setError("Something went wrong");
+        }
       }
+    }
+  };
+
+  const loginWithGoogleHandler = async () => {
+    try {
+      await loginWithGoogle();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -49,6 +61,8 @@ const Login = () => {
       <button style={{ padding: "0.5rem 1rem" }} onClick={submitHandler}>
         Submit
       </button>
+
+      <button onClick={loginWithGoogleHandler}>Login with google</button>
 
       <h4 onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {!isLoggedIn ? "Login" : "Register"}
