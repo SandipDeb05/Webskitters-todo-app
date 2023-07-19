@@ -144,7 +144,7 @@ body {
 .login-container h2 {
   font-size: 24px;
   margin-bottom: 1rem;
-  color: #333; /* Adjust the color as needed */
+  color: #333;
 }
 
 .error-message {
@@ -271,8 +271,6 @@ body {
   align-items: center;
   margin-top: 1rem;
 }
-
-/* Style for Todo component */
 
 .todo {
   display: flex;

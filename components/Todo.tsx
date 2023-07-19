@@ -1,4 +1,13 @@
-const Todo = (props: { children: any; edit: any; setEdit: any }) => {
+const Todo = (props: {
+  children: any;
+  edit: any;
+  handleAddEdit: any;
+  editedValue: any;
+  setEditedValue: any;
+  todoKey: any;
+  handleSaveEdit: any;
+  handleDeleteTodo: any;
+}) => {
   const {
     children,
     edit,

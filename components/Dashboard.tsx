@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!userInfo && Object.keys(userInfo).length === 0) {
-      setAddTodo(true);
+      setTodo("");
     }
   }, [userInfo]);
 
@@ -43,7 +43,7 @@ const Dashboard = () => {
     setTodo("");
   };
 
-  const handleAddEdit = (todoKey) => {
+  const handleAddEdit = (todoKey: any) => {
     return () => {
       setEdit(todoKey);
       setEditedValue(todos[todoKey]);
@@ -74,7 +74,7 @@ const Dashboard = () => {
     setEditedValue("");
   };
 
-  const handleDeleteTodo = (todoKey) => {
+  const handleDeleteTodo = (todoKey: any) => {
     return async () => {
       const tempObject = { ...todos };
       delete tempObject[todoKey];
@@ -117,7 +117,6 @@ const Dashboard = () => {
             return (
               <Todo
                 key={i}
-                index={i}
                 edit={edit}
                 handleAddEdit={handleAddEdit}
                 todoKey={todo}
