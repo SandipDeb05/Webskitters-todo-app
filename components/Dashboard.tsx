@@ -94,25 +94,25 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h1>Webskitters Todo App</h1>
-      <div>
+    <div className="dashboard-container">
+      <h1 className="dashboard-title">Webskitters Todo App</h1>
+      <div className="todo-input-container">
         <input
           type="text"
           placeholder="Enter todo"
           value={todo}
-          style={{ padding: "0.5rem 1rem" }}
+          className="todo-input"
           onChange={(e) => setTodo(e.target.value)}
         />
-        <button style={{ padding: "0.5rem 1rem" }} onClick={handleAddTodo}>
+        <button className="todo-add-button" onClick={handleAddTodo}>
           Add
         </button>
       </div>
 
-      {loading && <h3>Loading...</h3>}
+      {loading && <h3 className="loading-text">Loading...</h3>}
 
       {!loading && (
-        <>
+        <div className="todo-list">
           {Object.keys(todos).map((todo, i) => {
             return (
               <Todo
@@ -130,7 +130,7 @@ const Dashboard = () => {
               </Todo>
             );
           })}
-        </>
+        </div>
       )}
     </div>
   );

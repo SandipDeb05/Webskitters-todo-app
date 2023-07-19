@@ -1,9 +1,9 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -93,6 +93,320 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+/* TODO Header */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+}
+
+.header-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.header-welcome {
+  font-size: 16px;
+  margin: 0;
+  margin-left: 1rem;
+}
+
+.logout-button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #eee;
+}
+
+/* TODO LOG-IN */
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+  color: #333; /* Adjust the color as needed */
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  margin-bottom: 1rem;
+}
+
+.input-field input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 14px;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.google-button {
+  margin-top: 1rem;
+}
+
+.toggle-button {
+  background-color: transparent;
+  border: none;
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+/* LOG-OUT */
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+/* DASHBOARD */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  height: 100vh;
+}
+
+.dashboard-title {
+  font-size: 32px;
+  margin-bottom: 1rem;
+}
+
+.todo-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.todo-add-button {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.todo-add-button:hover {
+  background-color: #45a049;
+}
+
+.loading-text {
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Style for Todo component */
+
+.todo {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.todo-buttons {
+  margin-left: auto;
+}
+
+.todo-edit-input {
+  padding: 0.5rem;
+  margin-right: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.todo-save-button,
+.todo-delete-button {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.todo-save-button:hover,
+.todo-delete-button:hover {
+  background-color: #45a049;
+}
+
+/* TODO SINGLE-TODOs*/
+
+.todo-container {
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-text {
+  flex-grow: 1;
+  text-transform: capitalize;
+}
+
+.todo-edit-input {
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+}
+
+.todo-button {
+  padding: 0.3rem 0.6rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.todo-button:hover {
+  background-color: #45a049;
+}
+
+.todo-delete-button {
+  background-color: #f44336;
+}
+
+.todo-delete-button:hover {
+  background-color: #d32f2f;
+}
+.disabled-button {
+  padding: 0.5rem 1rem;
+  background-color: #ccc;
+  color: #777;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* FOOTER */
+.footer-container {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* 404 ERROR PAGE */
+.error-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.error-page-title {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.error-page-subtitle {
+  font-size: 24px;
+  margin-bottom: 32px;
+  color: #666;
+}
+
+.error-page-link {
+  font-size: 18px;
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.error-page-link:hover {
+  text-decoration: underline;
 }
 
 a {

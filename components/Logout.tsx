@@ -7,7 +7,7 @@ const Logout = () => {
     <div>
       {currentUser ? (
         <button
-          style={{ padding: "0.5rem 1rem" }}
+          className="logout-button"
           onClick={() => {
             logout();
           }}

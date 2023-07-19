@@ -1,5 +1,6 @@
 import { useAuth } from "@/context/authContext";
-import React, { useState } from "react";
+import { useState } from "react";
+import GoogleButton from "react-google-button";
 
 const Login = () => {
   const { login, signup, loginWithGoogle } = useAuth();
@@ -41,32 +42,49 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>{isLoggedIn ? "Login" : "Register"}</h2>
-      {!!error && <div>{error}</div>}
-      <input
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        type="email"
-        placeholder="Email"
-        style={{ outline: "none", padding: "0.5rem" }}
-      />
-      <input
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        type="password"
-        placeholder="Password"
-        style={{ outline: "none", padding: "0.5rem" }}
-      />
-      <button style={{ padding: "0.5rem 1rem" }} onClick={submitHandler}>
-        Submit
-      </button>
+    <div className="login-container">
+      <div>
+        <h2>{isLoggedIn ? "Login" : "Register"}</h2>
+      </div>
 
-      <button onClick={loginWithGoogleHandler}>Login with google</button>
+      {!!error && <div className="error-message">{error}</div>}
+      <div className="input-field">
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Email"
+          className="input-field"
+        />
+      </div>
 
-      <h4 onClick={() => setIsLoggedIn(!isLoggedIn)}>
-        {!isLoggedIn ? "Login" : "Register"}
-      </h4>
+      <div className="input-field">
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Password"
+        />
+      </div>
+
+      <div>
+        <button className="submit-button" onClick={submitHandler}>
+          Submit
+        </button>
+      </div>
+
+      <div className="google-button">
+        <GoogleButton type="light" onClick={loginWithGoogleHandler} />
+      </div>
+
+      <div>
+        <button
+          className="toggle-button"
+          onClick={() => setIsLoggedIn(!isLoggedIn)}
+        >
+          {!isLoggedIn ? "Login" : "Register"}
+        </button>
+      </div>
     </div>
   );
 };
