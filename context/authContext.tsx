@@ -7,25 +7,35 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  User,
 } from "firebase/auth";
 
-const AuthContext = React.createContext({});
+type AuthContextType = {
+  currentUser: any;
+  login: any;
+  signup: any;
+  logout: any;
+  userInfo: any;
+  loginWithGoogle: any;
+};
+
+const AuthContext = React.createContext<AuthContextType>({} as AuthContextType);
 
 export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const userInfo = useRef();
+  const userInfo = useRef<any>();
 
-  const signup = (email, password) => {
+  const signup = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password);
     return;
   };
 
-  const login = (email, password) => {
+  const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 

@@ -6,7 +6,7 @@ const Login = () => {
   const { login, signup, loginWithGoogle } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<any>("");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const submitHandler = async () => {
@@ -23,7 +23,7 @@ const Login = () => {
     } else {
       try {
         await signup(email, password);
-      } catch (error) {
+      } catch (error: any) {
         if (error.code === 400) {
           setError("Email and password already in use");
         } else {

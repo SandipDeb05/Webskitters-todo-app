@@ -7,7 +7,7 @@ const useFetchTodos = () => {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [todos, setTodos] = useState(null);
+  const [todos, setTodos] = useState<any | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +17,7 @@ const useFetchTodos = () => {
         if (docSnap.exists()) {
           setTodos(docSnap.data().todos);
         } else {
-          setTodos({});
+          setTodos(null);
         }
       } catch (error) {
         setError("Failed to load todos");

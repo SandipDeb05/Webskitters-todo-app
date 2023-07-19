@@ -7,9 +7,9 @@ import useFetchTodos from "@/hooks/fetchTodos";
 
 const Dashboard = () => {
   const { userInfo, currentUser } = useAuth();
-  const [edit, setEdit] = useState(null);
-  const [todo, setTodo] = useState("");
-  const [editedValue, setEditedValue] = useState("");
+  const [edit, setEdit] = useState<string | null>(null);
+  const [todo, setTodo] = useState<string>("");
+  const [editedValue, setEditedValue] = useState<string>("");
 
   const { todos, setTodos, loading, error } = useFetchTodos();
 
@@ -23,7 +23,10 @@ const Dashboard = () => {
     if (!todo) return;
 
     const newKey =
-      Object.keys(todos).length === 0 ? 1 : Math.max(...Object.keys(todos)) + 1;
+      Object.keys(todos).length === 0
+        ? "1"
+        : String(Math.max(...Object.keys(todos).map(Number)) + 1);
+
     setTodos({
       ...todos,
       [newKey]: todo,
@@ -53,7 +56,7 @@ const Dashboard = () => {
   const handleSaveEdit = async () => {
     if (!editedValue) return;
 
-    const newKey = edit;
+    const newKey: any | null = edit;
 
     setTodos({
       ...todos,
