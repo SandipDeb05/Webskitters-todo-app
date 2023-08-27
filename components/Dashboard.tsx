@@ -7,7 +7,7 @@ import useFetchTodos from "@/hooks/fetchTodos";
 
 // TODO Google analytics
 import ReactGA from "react-ga";
-ReactGA.initialize("UA-155053958-1");
+ReactGA.initialize("UA-155053958-2");
 
 const Dashboard = () => {
   const { userInfo, currentUser } = useAuth();
