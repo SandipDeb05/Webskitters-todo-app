@@ -5,6 +5,10 @@ import { doc, setDoc, deleteField } from "firebase/firestore";
 import { db } from "../firebase";
 import useFetchTodos from "@/hooks/fetchTodos";
 
+// TODO Google analytics
+import ReactGA from "react-ga";
+ReactGA.initialize("G-BRS748Q3CM");
+
 const Dashboard = () => {
   const { userInfo, currentUser } = useAuth();
   const [edit, setEdit] = useState<string | null>(null);
@@ -12,6 +16,11 @@ const Dashboard = () => {
   const [editedValue, setEditedValue] = useState<string>("");
 
   const { todos, setTodos, loading, error } = useFetchTodos();
+
+  // TODO page view event
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     if (!userInfo && Object.keys(userInfo).length === 0) {
@@ -42,6 +51,13 @@ const Dashboard = () => {
       },
       { merge: true }
     );
+
+    // TODO Interaction event
+    ReactGA.event({
+      category: "User",
+      action: "Added a TODO",
+      label: todo,
+    });
 
     setTodo("");
   };
@@ -98,7 +114,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Webskitters Todo App</h1>
+      <h1 className="dashboard-title">Webskitters Todo App GA</h1>
       <div className="todo-input-container">
         <input
           type="text"
