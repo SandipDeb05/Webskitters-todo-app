@@ -6,8 +6,8 @@ import { db } from "../firebase";
 import useFetchTodos from "@/hooks/fetchTodos";
 
 // TODO Google analytics
-import ReactGA from "react-ga";
-ReactGA.initialize("UA-155053958-2");
+import ReactGA from "react-ga4";
+ReactGA.initialize("G-BRS748Q3CM");
 
 const Dashboard = () => {
   const { userInfo, currentUser } = useAuth();
@@ -19,7 +19,11 @@ const Dashboard = () => {
 
   // TODO page view event
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/my-path",
+      title: "Custom Title",
+    });
   }, []);
 
   useEffect(() => {
