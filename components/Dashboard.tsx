@@ -58,9 +58,11 @@ const Dashboard = () => {
 
     // TODO Interaction event
     ReactGA.event({
-      category: "User",
+      category: "TODOs",
       action: "Added a TODO",
       label: todo,
+      value: 99, // optional, must be a number
+      transport: "xhr", // optional, beacon/xhr/image
     });
 
     setTodo("");
